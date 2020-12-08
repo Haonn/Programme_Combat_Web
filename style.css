@@ -1,0 +1,24 @@
+body {
+	background-image:url(battleback1.png);
+}
+.pv {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	width: 200px;
+	justify-content: space-around;
+	backface-visibility: hidden;
+}
+.case {
+	border-style: inset;
+	background-color: #808080
+}
+.attaquer {
+
+}
+.defendre {
+
+}
+.soigner {
+
+}
