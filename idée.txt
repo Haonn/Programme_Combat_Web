@@ -1,0 +1,63 @@
+// Déclaration Fonctions
+  //Fonction de combat entrée utilisateur
+  // Prends en entrée le tableau de personnage
+    // 1 - Remet à 0 les dégats infligés et sur false les booléens de ciblage
+function combat (tp1) {
+  tp1[4] = false
+  tp1[5] = false
+  tp1[6] = false
+  tp1[7] = false
+  tp1[8] = 0
+  // 2 - Affiche une fenêtre avec des éléments clicables pour choisir l'attaque
+    
+  /*3 - En fonction de l'attaque choisie exécute soit un soin qui augmente les PV dans le tableau ID et met la variable attaque sur false, ou une attaque simple qui rentre les dégats infligés bruts dans la case correspondante du tableau, met la variable attaque sur vrai puis affiche une fenêtre de choix de monstre ou l'on peux cliquer sur le monstre pour le sélectionner, cela change un booléen dans le tableau ID en vrai pour le monstre sélectionné, ou une attaque spéciale de personnage qui se réffère à l'ID du tableau pour exécuter l'attaque correspondante avec ses dégâts infligés propres */
+
+  
+}
+// Déclaration variables
+  //Tableau ID personnage 
+  /* Format : ID/PV/Mana/Atk/Def/Entrées sous forme de booléen de oui ou non par monstre(= * 3)/ attaque oui ou non (booléen)/ dégâts infligés  
+   L'ID sert pour identifier le personnage et son attaque spéciale associée renseignée dans la fonction dédiée.*/
+    //Tableau Kaezh (ID : P1)
+let tp1 = ["p1", 15, 6, 6, 2, false, false, false, false, 0  ];
+    //Tableau Nima (ID : P2)
+let tp2 =
+    //Tableau Fomane (ID : P3)
+let tp3 = 
+    //Tableau Khentissy (ID : P4)
+let tp4 =
+  // Combat en cours (booléen)
+let combatEnCours = true ;
+
+// Début programme principal
+  // Affiche une fenêtre avec écrit "Dans votre quête vous rencontrez des bandits, préparez vous à vous battre !"
+  //Boucle du combat tant que combat en cours
+
+    //boucle du tour tant que combat en cours 
+      // Tour des joueurs
+        //Si  les PV de P1 sont supérieur à 0 Applique la fonction de combat pour P1
+
+          //Si attaque est vrai Applique les dégats infligés renseignés dans la case dégats infligés au monstre ciblé en soustrayant avec la défense monstre
+
+        //Si  les PV de P2 sont supérieur à 0 Applique la fonction de combat pour P2
+
+          //Si attaque est vrai Applique les dégats infligés renseignés dans la case dégats infligés au monstre ciblé en soustrayant avec la défense monstre
+
+        //Si  les PV de P3 sont supérieur à 0 Applique la fonction de combat pour P3
+
+          //Si attaque est vrai Applique les dégats infligés renseignés dans la case dégats infligés au monstre ciblé en soustrayant avec la défense <monstre></monstre>
+
+        //Si  les PV de P4 sont supérieur à 0 Applique la fonction de combat pour P4
+
+          //Si attaque est vrai Applique les dégats infligés renseignés dans la case dégats infligés au monstre ciblé en soustrayant avec la défense monstre
+
+      //Tour des monstres 
+
+          //Applique les dégâts du monstre 1 à un joueur aléatoire 
+            // Prends un nombre aléatoire dans [1;4] dans la variable cibleMonstre1
+            // ajoute la chaîne de caractère "p" avant la variable cibleMonstre1 dans la variable cibleMonstre1
+              //Dans des "si cibleMonstre1 = p1" pour p1, p2, p3 et p4 applique les dégâts soustraits à la défense de la cible  
+    //Vérifie si le combat est terminé (une équipe n'a plus de PV )
+    //(Si Pv monstre 1 + Pv monstre 2 + Pv monstre 3 = 0 ou Pv personnage 1 + Pv personnage 2 + Pv personnage 3 + Pv personnage 4 = 0)
+    //Fin boucle du tour
+//
