@@ -20,7 +20,7 @@ function attaque(pvMonstre, scoreAttaque, pvJoueur){
 	
 }
 function soin(pvJoueur){
-	pvJoueur.innerHTML = pvJoueur.innerHTML + 7
+	pvJoueur.innerHTML = (pvJoueur.innerHTML + 7) 
 
 }
 monstre1.addEventListener("mouseover", () => {pvMonstre1.style.visibility = "visible";})
