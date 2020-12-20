@@ -1,6 +1,18 @@
 body {
 	background-image:url(img/battleback1.png);
 }
+#viem1 {
+	visibility : hidden;
+	border-style: inset;
+	border-color: #000080;
+	background-color: white;
+	width: 50px;
+}
+.monstre {
+	display : flex;
+	flex-direction: column;
+	align-items: center 
+}
 .pv {
 	display: flex;
 	justify-content: flex-start;
@@ -11,7 +23,7 @@ body {
 }
 .case {
 	border-style: inset;
-	background-color: #808080
+	background-color: #808080;
 }
 .attaquer {
 
