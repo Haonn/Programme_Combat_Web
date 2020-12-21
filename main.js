@@ -1,6 +1,6 @@
 var pvKaezh = document.getElementById("pvp1");
-var atkKaezh = 6;
-var soinKaezh = 7;
+var atkKaezh = 7;
+var soinKaezh = 6;
 var pvMonstre1 = document.getElementById("viem1");
 var choixAttaque = document.getElementById("attaquer");
 var choixSoin = document.getElementById("soigner");
@@ -19,12 +19,14 @@ function attaque(pvMonstre, scoreAttaque, pvJoueur){
 	}
 	
 }
-function soin(pvJoueur){
-	pvJoueur.innerHTML = (pvJoueur.innerHTML + 7) 
-
+function soin(heal, pvJoueur){
+	for(let i = 0; i< heal; i++){
+		pvJoueur.innerHTML ++
+	}
 }
+
 monstre1.addEventListener("mouseover", () => {pvMonstre1.style.visibility = "visible";})
 monstre1.addEventListener("mouseout", () => {pvMonstre1.style.visibility = "hidden";})
 
 choixAttaque.onclick = function(){attaque(pvMonstre1, atkKaezh, pvKaezh)}
-choixSoin.onclick = function(){soin(pvKaezh)}
+choixSoin.onclick = function(){soin(soinKaezh, pvKaezh)}
