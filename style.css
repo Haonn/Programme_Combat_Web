@@ -1,6 +1,12 @@
 body {
 	background-image:url(img/battleback1.png);
 }
+#defense{
+	visibility : hidden;
+}
+#scoredefenseKaezh{
+	visibility : hidden;
+}
 #viem1 {
 	visibility : hidden;
 	border-style: inset;
