@@ -1,4 +1,5 @@
 var pvKaezh = document.getElementById("pvp1");
+var manaKaezh = document.getElementById("manap1");
 var atkKaezh = 7;
 var soinKaezh = 6;
 var pvMonstre1 = document.getElementById("viem1");
@@ -25,9 +26,16 @@ function checkPv(pvJoueur){
 	}
 }
 
-function soin(heal, pvJoueur){
-	for(let i = 0; i< heal; i++){
-		pvJoueur.innerHTML ++
+function soin(mana, heal, pvJoueur, defenseJoueur){
+	if (mana.innerHTML >0){
+		for(let i = 0; i< heal; i++){
+			pvJoueur.innerHTML ++
+		}
+		attaqueMonstre(defenseJoueur, pvJoueur)
+		mana.innerHTML = mana.innerHTML-1
+	}else { 
+		alert ("Vous n'avez pas assez de Mana ! Le monstre en profite pour attaquer !")
+		attaqueMonstre(defenseJoueur, pvJoueur)
 	}
 }
 function checkDefense(defense){
@@ -56,6 +64,6 @@ function attaqueMonstre (defenseJoueur, pvJoueur){
 monstre1.addEventListener("mouseover", () => {pvMonstre1.style.visibility = "visible";})
 monstre1.addEventListener("mouseout", () => {pvMonstre1.style.visibility = "hidden";})
 
-choixAttaque.onclick = function(){attaque(pvMonstre1, atkKaezh, pvKaezh,defenseKaezh), checkDefense(defenseKaezh, bouclier)}
-choixSoin.onclick = function(){soin(soinKaezh, pvKaezh), checkDefense(defenseKaezh)}
+choixAttaque.onclick = function(){attaque(pvMonstre1, atkKaezh, pvKaezh,defenseKaezh)}
+choixSoin.onclick = function(){soin(manaKaezh,soinKaezh, pvKaezh, defenseKaezh)}
 choixDefense.onclick = function(){defense(defenseKaezh,bouclier)}
