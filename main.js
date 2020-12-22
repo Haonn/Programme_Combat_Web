@@ -26,6 +26,7 @@ function attaque(pvMonstre, scoreAttaque, pvJoueur,defenseJoueur,charge){
 	resetBoutons()
 	choixAttaque.disabled = true;
 	charge.innerHTML ++ 
+	checkSpe(charge);
 }
 //Fonction surveillant que les pv du joueur n'excèdent pas 15 (WIP)
 function checkPv(pvJoueur){
@@ -38,10 +39,10 @@ function checkPv(pvJoueur){
 }
 //Fonction pour voir si le personnage peux déclencher son attaque spéciale
 function checkSpe(charge){
-	if (charge.innerHTML <2 ){
-		choixAttaqueSpeciale.style.visibility = "visible"
-	} else { choixAttaqueSpeciale.style.visibility = "hidden"
-
+	if(charge < 2){
+		choixAttaqueSpeciale.style.visibility = "visible";
+	} else {
+	 choixAttaqueSpeciale.style.visibility = "hidden";
 	}
 }
 //Fonction pour se soigner 
@@ -63,6 +64,7 @@ function soin(mana, heal, pvJoueur, defenseJoueur,pvMonstre,charge){
 	resetBoutons()
 	choixSoin.disabled = true;
 	charge.innerHTML ++
+	checkSpe(charge);
 }
 //Fonction pour cacher le bouclier quand il n'est plus actif (WIP)
 function checkDefense(defense){
@@ -82,6 +84,7 @@ function defense (defense, imgBouclier, pvJoueur,charge ){
 		choixDefense.disabled = true;
 		attaqueMonstre(defense, pvJoueur)
 		charge.innerHTML++
+		checkSpe(charge);
 }
 //Fonction d'attaque du monstre
 function attaqueMonstre (defenseJoueur, pvJoueur){
@@ -89,12 +92,12 @@ function attaqueMonstre (defenseJoueur, pvJoueur){
 		defenseJoueur.innerHTML = defenseJoueur.innerHTML - 1
 		pvJoueur.innerHTML = pvJoueur.innerHTML - 2
 		if (pvJoueur.innerHTML < 1){
-			alert ("Vous êtes mort")
+			mort()
 		}
 	} else {
 		pvJoueur.innerHTML = pvJoueur.innerHTML - 5
 		if (pvJoueur.innerHTML < 1){
-			alert ("Vous êtes mort")
+			mort()
 		}
 	}
 //Fonction pour réactiver les boutons 
@@ -104,13 +107,19 @@ function resetBoutons(){
 	choixDefense.disabled = false;
 	choixSoin.disabled = false;
 }
+function mort (){
+	alert ("Vous êtes mort")
+	choixAttaque.disabled = true;
+	choixDefense.disabled = true;
+	choixSoin.disabled = true;
+}
 //Vie du monstre quand on passe la souris dessus 
 monstre1.addEventListener("mouseover", () => {pvMonstre1.style.visibility = "visible";})
 monstre1.addEventListener("mouseout", () => {pvMonstre1.style.visibility = "hidden";})
 monstre1.addEventListener("mouseover", () => {nomMonstre1.style.visibility = "visible";})
 monstre1.addEventListener("mouseout", () => {nomMonstre1.style.visibility = "hidden";})
 
-choixAttaque.onclick = function(){attaque(pvMonstre1, atkKaezh, pvKaezh,defenseKaezh, chargeKaezh), checkSpe(chargeKaezh)}
-choixSoin.onclick = function(){soin(manaKaezh,soinKaezh, pvKaezh, defenseKaezh, pvMonstre1,chargeKaezh), checkSpe(chargeKaezh)}
-choixDefense.onclick = function(){defense(defenseKaezh,bouclier, pvKaezh,chargeKaezh),checkSpe(chargeKaezh)}
+choixAttaque.onclick = function(){attaque(pvMonstre1, atkKaezh, pvKaezh,defenseKaezh, chargeKaezh)}
+choixSoin.onclick = function(){soin(manaKaezh,soinKaezh, pvKaezh, defenseKaezh, pvMonstre1,chargeKaezh)}
+choixDefense.onclick = function(){defense(defenseKaezh,bouclier, pvKaezh,chargeKaezh)}
 choixAttaqueSpeciale.onclick = function(){attaqueSpeciale()}
