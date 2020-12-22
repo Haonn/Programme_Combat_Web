@@ -8,18 +8,39 @@ body {
 #scoredefenseKaezh{
 	visibility : hidden;
 }
-#viem1 {
+/*#viem1 {
 	color : white;
 	visibility : hidden;
 	border-style: inset;
 	border-color: #6d071a;
 	background-color: red;
-	width: 50px;
-}
+	border-radius: 50px;
+}*/
+/*#nomm1 {
+	color : white;
+	visibility: hidden;
+}*/
 .monstre {
+
 	display : flex;
 	flex-direction: column;
 	align-items: center 
+}
+.infomonstre {
+
+	display : flex;
+	flex-direction: row;
+	align-content: center;
+	border-style : inset;
+	border-color: #6d071a;
+	background-color: red;
+	border-radius: 50px;
+	visibility : hidden;
+	color : white;
+
+}
+#specialatck {
+	visibility : hidden;
 }
 .pv {
 	display: flex;
