@@ -1,5 +1,6 @@
 body {
 	background-image:url(img/battleback1.png);
+	font-family: Verdana, sans-serif;
 }
 #defense{
 	visibility : hidden;
@@ -8,10 +9,11 @@ body {
 	visibility : hidden;
 }
 #viem1 {
+	color : white;
 	visibility : hidden;
 	border-style: inset;
-	border-color: #000080;
-	background-color: white;
+	border-color: #6d071a;
+	background-color: red;
 	width: 50px;
 }
 .monstre {

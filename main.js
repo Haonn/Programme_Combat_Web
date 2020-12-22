@@ -18,41 +18,54 @@ function attaque(pvMonstre, scoreAttaque, pvJoueur,defenseJoueur){
 	} else {
 		attaqueMonstre(defenseJoueur, pvJoueur)
 	}
+	resetBoutons()
+	choixAttaque.disabled = true;
 }
 	
 function checkPv(pvJoueur){
 	if(pvJoueur.innerHTML<15){
-		pvJoueur.innerHTML = 15
+		pvJoueur.innerHTML = pvJoueur.innerHTML - 15
+		for (let i = 0; i < 15; i++){
+			pvJoueur.innerHTML ++
+		}
 	}
 }
-
+//Fonction pour se soigner 
 function soin(mana, heal, pvJoueur, defenseJoueur,pvMonstre){
 	if (mana.innerHTML >0){
 		for(let i = 0; i< heal; i++){
 			pvJoueur.innerHTML ++
 		}
-		if (pvMonstre>0){
+		if (pvMonstre.innerHTML>0){
 		attaqueMonstre(defenseJoueur, pvJoueur)
 	}
 	mana.innerHTML = mana.innerHTML-1
+	checkPv(pvJoueur);
 			
 	}else { 
 		alert ("Vous n'avez pas assez de Mana ! Le monstre en profite pour attaquer !")
 		attaqueMonstre(defenseJoueur, pvJoueur)
 	}
+	resetBoutons()
+	choixSoin.disabled = true;
 }
+//Fonction pour cacher le bouclier quand il n'est plus actif (WIP)
 function checkDefense(defense){
 	if (defense = 0){
 		defense.style.visibility = "hidden";
 		bouclier.style.visibility = "hidden";
 	}
 }
-
+// Fonction permettant de se défendre
 function defense (defense, imgBouclier){
-	defense.innerHTML ++
-	defense.style.visibility = "visible";
-	imgBouclier.style.visibility = "visible";
+
+		defense.innerHTML ++
+		defense.style.visibility = "visible";
+		imgBouclier.style.visibility = "visible";
+		resetBoutons()
+		choixDefense.disabled = true;
 }
+//Fonction d'attaque du monstre
 function attaqueMonstre (defenseJoueur, pvJoueur){
 	if (defenseJoueur.innerHTML > 0){
 		defenseJoueur.innerHTML = defenseJoueur.innerHTML - 1
@@ -62,9 +75,14 @@ function attaqueMonstre (defenseJoueur, pvJoueur){
 			alert ("Vous êtes mort")
 		}
 	}
-
+//Fonction pour réactiver les boutons 
 }
-
+function resetBoutons(){
+	choixAttaque.disabled = false;
+	choixDefense.disabled = false;
+	choixSoin.disabled = false;
+}
+//Vie du monstre quand on passe la souris dessus 
 monstre1.addEventListener("mouseover", () => {pvMonstre1.style.visibility = "visible";})
 monstre1.addEventListener("mouseout", () => {pvMonstre1.style.visibility = "hidden";})
 
