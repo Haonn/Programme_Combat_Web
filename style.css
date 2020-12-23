@@ -39,9 +39,6 @@ body {
 	color : white;
 
 }
-#specialatck {
-	visibility : hidden;
-}
 .pv {
 	display: flex;
 	justify-content: flex-start;

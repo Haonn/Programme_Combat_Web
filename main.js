@@ -37,14 +37,21 @@ function checkPv(pvJoueur){
 		}
 	}
 }
-//Fonction pour voir si le personnage peux déclencher son attaque spéciale
-function checkSpe(charge){
+function attaqueSpecialeP1 (charge,pvMonstre,defenseJoueur, pvJoueur){
+	if (charge.innerHTML > 2){
+		pvMonstre.innerHTML = pvMonstre.innerHTML - 8
+		charge.innerHTML = charge.innerHTML - 3
+		attaqueMonstre(defenseJoueur, pvJoueur)
+	} else { alert ("Vous n'avez pas assez de charge :")}
+}
+//Fonction pour voir si le personnage peux déclencher son attaque spéciale (WIP)
+/*function checkSpe(charge){
 	if(charge < 2){
 		choixAttaqueSpeciale.style.visibility = "visible";
 	} else {
 	 choixAttaqueSpeciale.style.visibility = "hidden";
 	}
-}
+}*/
 //Fonction pour se soigner 
 function soin(mana, heal, pvJoueur, defenseJoueur,pvMonstre,charge){
 	if (mana.innerHTML > 0){
@@ -112,6 +119,7 @@ function mort (){
 	choixAttaque.disabled = true;
 	choixDefense.disabled = true;
 	choixSoin.disabled = true;
+	choixAttaqueSpeciale.disabled = true ;
 }
 //Vie du monstre quand on passe la souris dessus 
 monstre1.addEventListener("mouseover", () => {pvMonstre1.style.visibility = "visible";})
@@ -122,4 +130,4 @@ monstre1.addEventListener("mouseout", () => {nomMonstre1.style.visibility = "hid
 choixAttaque.onclick = function(){attaque(pvMonstre1, atkKaezh, pvKaezh,defenseKaezh, chargeKaezh)}
 choixSoin.onclick = function(){soin(manaKaezh,soinKaezh, pvKaezh, defenseKaezh, pvMonstre1,chargeKaezh)}
 choixDefense.onclick = function(){defense(defenseKaezh,bouclier, pvKaezh,chargeKaezh)}
-choixAttaqueSpeciale.onclick = function(){attaqueSpeciale()}
+choixAttaqueSpeciale.onclick = function(){attaqueSpecialeP1(chargeKaezh, pvMonstre1, defenseKaezh, pvKaezh)}
